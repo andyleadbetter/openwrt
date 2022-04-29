@@ -132,6 +132,8 @@ world: prepare $(target/stamp-compile) $(package/stamp-compile) $(package/stamp-
 ifneq ($(CONFIG_CCACHE),)
 	$(STAGING_DIR_HOST)/bin/ccache -s
 endif
+	rsync -avc --progress --stats bin root@vpn.theleadbetters.com:/var/lib/docker/volumes/htpc_opkg-repo/_data/
+
 
 .PHONY: clean dirclean prereq prepare world package/symlinks package/symlinks-install package/symlinks-clean
 
